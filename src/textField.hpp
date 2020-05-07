@@ -45,21 +45,21 @@ namespace hui {
 	class textField : public element {
 	protected:
 		bool m_updateTextureNextRender = true; //!<Do we need to update the texture next render call?
-		SDL_Texture *m_texture, *m_textureCommitedLeft, *m_textureComposition, *m_textureCommitedRight; //!<Texture which is rendered and its parts
-		SDL_Surface *m_surfaceCommitedLeft, *m_surfaceComposition, *m_surfaceCommitedRight; //!<Surfaces for all 3 parts of text, one linked to m_texture
+		SDL_Texture *m_texture, *m_textureCommitedLeft, *m_textureComposition, *m_textureCommitedRight; //Texture which is rendered and its parts
+		SDL_Surface *m_surfaceCommitedLeft, *m_surfaceComposition, *m_surfaceCommitedRight; //Surfaces for all 3 parts of text, one linked to m_texture
 		
-		std::array<Uint8, 7>	m_r = { 255, 255, 255, 255, 000, 192, 000 },
-								m_g = { 255, 255, 255, 255, 120, 192, 000 },
-								m_b = { 255, 255, 255, 255, 215, 192, 000 },
-								m_a = { 255, 255, 255, 255, 255, 192, 000 }; //!<Colors of various parts. \sa textField::Component
-		TTF_Font *m_font;
-		std::array<int, 2> m_underlineLengths = {10, 10};
-		SDL_Rect m_commitedRectLeft, m_compositionRect, m_commitedRectRight, m_underlineRect, m_cursorRect, m_selectionRect;
+		std::array<Uint8, 7>	m_r = { 255, 255, 255, 255, 000, 192, 000 }, //!<Red values of components. \sa textField::Component
+								m_g = { 255, 255, 255, 255, 120, 192, 000 }, //!<Green values of components. \sa textField::Component
+								m_b = { 255, 255, 255, 255, 215, 192, 000 }, //!<Blue values of components. \sa textField::Component
+								m_a = { 255, 255, 255, 255, 255, 192, 000 }; //!<Alpha values of components. \sa textField::Component
+		TTF_Font *m_font; //!<Font being used
+		std::array<int, 2> m_underlineLengths = {10, 10}; //Length and spacing of underline
+		SDL_Rect m_commitedRectLeft, m_compositionRect, m_commitedRectRight, m_underlineRect, m_cursorRect, m_selectionRect; //Rectangles for spacing and formatting (Internal)
 
 		bool m_typing = false; //!<Are we listening for typing actions
 		bool m_selecting = false; //!<Is user click and dragging to select an area of text
 		size_t m_compositionIndex = 0; //!<Where should the commited text be split for composition
-		size_t m_cursorIndex = 0, m_compositionCursorIndex = 0; //!<Where is the cursor among the text, currently.
+		size_t m_cursorIndex = 0, m_compositionCursorIndex = 0; //Where is the cursor among the text, currently.
 		size_t m_selectionIndexBegin = 0, m_selectionIndexEnd = 0, m_selectingFromIndex = 0;
 		std::string m_commitedString = ""; //!<The text in the field (Excluding composition text)
 		std::string m_compositionString = ""; //!<Composition text
@@ -67,14 +67,27 @@ namespace hui {
 
 		void m_updateTexture(SDL_Renderer *renderer); //!<Update m_texture to reflect current state
 
-		Uint32 m_cursorTimer = 0;
+		Uint32 m_cursorTimer = 0; //!<Timer used for tracking the cursor blinking
 	public:
 		/*!
 		*	\brief Components of a textField
 		*/
 		enum Component { CommitedText, CompositionText, CompositionUnderline, Cursor, SelectionBox, PromptText, Background };
 
+		/**
+		 *	\brief Construct a text field with a font
+		 *
+		 *	\param *font The font of the text.
+		 */
 		textField(TTF_Font *font);
+		/**
+		 *	\brief Construct the text field with a font, position, size, angle, and flip
+		 *
+		 *	\param *font The font of the text.
+		 *	\param dstrect The rectangle to draw the text field in.
+		 *	\param angle The angle of the text field.
+		 *	\param flip The flip of the text field.
+		 */
 		textField(TTF_Font *font, const SDL_FRect dstrect, const double angle = 0, const SDL_RendererFlip flip = SDL_FLIP_NONE);
 		~textField();
 
@@ -84,19 +97,19 @@ namespace hui {
 		void loopLogic(Uint32 ms);
 		void resetLoopLogic();
 
-		/*
+		/**
 		 *	\brief Set the font to use for rendering
 		 *
 		 *	\param *font The font to be used.
 		 */
 		void setFont(TTF_Font *font);
-		/*
+		/**
 		 *	\brief Get the current font
 		 *
 		 *	\return The font currently being used.
 		 */
 		TTF_Font* getFont();
-		/*
+		/**
 		 *	\brief Set the line width
 		 *
 		 *	Line width is used for determining the width of the cursor
@@ -105,7 +118,7 @@ namespace hui {
 		 *	\param w Width to use.
 		 */
 		void setLineWidth(int w);
-		/*
+		/**
 		 *	\brief Set the underlining length
 		 *
 		 *	Allows for setting a solid or dashed underline.
@@ -114,14 +127,14 @@ namespace hui {
 		 *	\param spacing Space between lines
 		 */
 		void setUnderlineLengths(int line, int spacing);
-		/*
+		/**
 		 *	\brief Set the color of a specific component
 		 *
 		 *	\param clr Color to set the component to.
 		 *	\param c Component to set the color for.
 		 */
 		void setColor(SDL_Color clr, Component c = CommitedText);
-		/*
+		/**
 		 *	\brief Set the color of a specific component
 		 *
 		 *	\param r Value of red.
@@ -131,7 +144,7 @@ namespace hui {
 		 *	\param c Component to set the color for.
 		 */
 		void setColor(Uint8 r, Uint8 g, Uint8 b, Uint8 a, Component c = CommitedText);
-		/*
+		/**
 		 *	\brief Get the color of a specific component
 		 *
 		 *	\param c Component to set the color for.
@@ -139,7 +152,7 @@ namespace hui {
 		 *	\return The color of the given component.
 		 */
 		SDL_Color getColor(Component c = CommitedText);
-		/*
+		/**
 		 *	\brief Get the color of a specific component
 		 *
 		 *	\param c Component to set the color for.
@@ -147,19 +160,19 @@ namespace hui {
 		 *	\return The color of the given component in array form. (RGBA)
 		 */
 		std::array<Uint8, 4> getColorArray(Component c = CommitedText);
-		/*
+		/**
 		 *	\brief Set the string to be shown as a prompt
 		 *
 		 *	\param s UTF-8 string to use as a prompt.
 		 */
 		void setPromptString(std::string s);
-		/*
+		/**
 		 *	\brief Get the string currently set to be shown as a prompt
 		 *
 		 *	\return The text which will be shown as a prompt.
 		 */
 		std::string getPromptString();
-		/*
+		/**
 		 *	\brief Force the user to begin typing in this text field
 		 *
 		 *	This does not make the user stop typing in any other text fields and
@@ -167,13 +180,13 @@ namespace hui {
 		 *	to, such as a default selection when a new page is loaded.
 		 */
 		void startTyping();
-		/*
+		/**
 		 *	\brief Is the user currently typing into this text field
 		 *
 		 *	\return True if the user is editing the text.
 		 */
 		bool isTyping();
-		/*
+		/**
 		 *	\brief Stop typing in this text field
 		 *
 		 *	This does not make the user stop typing in any other text field and
@@ -183,7 +196,7 @@ namespace hui {
 		 *	\note This function <b>will</b> hide the pull-up keyboard if being used.
 		 */
 		void stopTyping();
-		/*
+		/**
 		 *	\brief Calculate the string character index based on an x position along the text field
 		 *
 		 *	\param x Distance along the text field to solve for.
@@ -195,7 +208,7 @@ namespace hui {
 		 *	this indicates the point is past the end of the string.
 		 */
 		size_t indexFromPosition(Sint32 x);
-		/*
+		/**
 		 *	\brief Set the commited string
 		 *
 		 *	The commited string is user-modifyable so this should only be
@@ -207,7 +220,7 @@ namespace hui {
 		 *	\sa textField::isTyping()
 		 */
 		void setCommitedString(std::string s);
-		/*
+		/**
 		 *	\brief Get the currently commited string
 		 *
 		 *	\return The string currently commited to the text field by user.
