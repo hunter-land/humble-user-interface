@@ -31,15 +31,19 @@ flip.
 
 ## Installation
 
-Download from the [GitHub Release Page]().
+This library provides pre-compiled binaries for Windows x86 an x64 (More planned)
 
 ## Usage
 
-See the [tutorials]() and [minimum working example]() for usage.
+See the [documentation](https://hui-doc.herokuapp.com), [tutorials](https://hui-doc.herokuapp.com), and [minimum working example]() for usage.
 
 ## Contributing
 
+##### Found a bug? Want a feature?
+Tell me about it by [submitting an issue](https://github.com/hunter-land/humble-user-interface/issues).
 
+##### Fixed a bug? Refactored some code?
+Submit a [pull request](https://github.com/hunter-land/humble-user-interface/pulls)
 
 ## Authors and acknowledgment
 
@@ -47,4 +51,4 @@ See the [tutorials]() and [minimum working example]() for usage.
 
 ## License
 
-All rights reserved.
+See the attached [license](license.txt)
