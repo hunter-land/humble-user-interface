@@ -35,7 +35,7 @@ This library provides pre-compiled binaries for Windows x86 an x64 (More planned
 
 ## Usage
 
-See the [documentation](https://hui-doc.herokuapp.com), [tutorials](https://hui-doc.herokuapp.com), and [minimum working example]() for usage.
+See the [documentation](https://hunter-land.github.io/humble-user-interface/), [tutorials](), and [minimum working example]() for usage.
 
 ## Contributing
 
