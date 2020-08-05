@@ -1,9 +1,11 @@
 #pragma once
 
-#include <SDL.h>
+extern "C" {
+#include <SDL2/SDL.h>
+}
 #include <vector>
 
-namespace hui {
+namespace lui {
 	/**
 	 *	\brief Calculate a point which is a given precentage along a line.
 	 *

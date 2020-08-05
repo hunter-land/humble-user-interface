@@ -1,9 +1,11 @@
-#include "extra.hpp"
+#include "./extra.hpp"
 
-#include <SDL.h>
+extern "C" {
+#include <SDL2/SDL.h>
+}
 #include <cmath> //sin and cos
 
-namespace hui {
+namespace lui {
 	SDL_FPoint PointAlongLine(const SDL_FPoint p1, const SDL_FPoint p2, const float progress) {
 		return SDL_FPoint{
 			p1.x*(1-progress) + p2.x*progress,

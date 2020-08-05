@@ -1,6 +1,8 @@
 #pragma once
 
-#include <SDL.h>
+extern "C" {
+#include <SDL2/SDL.h>
+}
 #include <array>
 #include <vector>
 #include <functional>
@@ -10,7 +12,7 @@
  *
  *	All aspects of Humble User Interface and stored inside of the hui namespace for organization.
  */
-namespace hui {
+namespace lui {
 	
 	/*!
 	 *	\brief A list of events which an eventFunction can be bound to
@@ -23,6 +25,7 @@ namespace hui {
 		FocusGained,	//!<Just became current element
 		FocusLost,		//!<Just stopped being current element
 		ValueChanged,	//!<Value of the element has changed
+		DestRectChanged,//!<The dstRect has been changed
 
 		//Mouse buttons; These will likely be depricated and removed in the future:
 		LMBDown,		//!<LMB was pressed down on element

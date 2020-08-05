@@ -1,7 +1,7 @@
 
-# Humble User Interface
-HUI was created to provide a simple and customizable set of GUI elements
-to a C++ SDL environment with minimal constraints and overhead. With HUI,
+# Lower User Interface
+LUI was created to provide a simple and customizable set of GUI elements
+to a C++ SDL environment with minimal constraints and overhead. With LUI,
 you define an element with a texture, dstrect, and an optional angle and
 flip.
 <!--Humble User Interface is a GUI library built on SDL2 v2.0.12.-->
@@ -43,7 +43,7 @@ See the [documentation](https://hui-doc.herokuapp.com), [tutorials](), and [mini
 Tell me about it by [submitting an issue](https://github.com/hunter-land/humble-user-interface/issues).
 
 ##### Fixed a bug? Refactored some code?
-Submit a [pull request](https://github.com/hunter-land/humble-user-interface/pulls)
+Submit a [pull request](https://github.com/hunter-land/humble-user-interface/pulls).
 
 ## Authors and acknowledgment
 

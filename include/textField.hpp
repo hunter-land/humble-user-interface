@@ -2,13 +2,15 @@
 
 #include "./element.hpp"
 
-#include <SDL.h>
-#include <SDL_ttf.h>
+extern "C" {
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_ttf.h>
+}
 #include <array>
 #include <vector>
 #include <string>
 
-namespace hui {
+namespace lui {
 	//Get length of UTF-8 string
 	//Use SDL_utf8strlen() instead
 		//static int strlen_utf8(std::string s) {

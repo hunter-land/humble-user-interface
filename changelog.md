@@ -4,9 +4,16 @@ removals (-), fixes (*), and security (!)-->
 
 All notable changes to this project will be documented in this file.
 
-This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) starting with v1.0.0.
 
 ## Unreleased
+## v0.4.1
+### Changed
+- <b>Changed name from HUI (Humble UI) to LUI (Low-Level UI).</b>
+- <b>Changed namespace from ***hui*** to ***lui***.</b>
+### Added
+- DestRectChanged event which can be bound to on any element.
+- Macro for converting the hui:: namespace to the new lui:: namepsace.
 ## v0.4.0
 ### Added
 - Text Field

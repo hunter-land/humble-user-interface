@@ -2,10 +2,12 @@
 
 #include "./element.hpp"
 
-#include <SDL.h>
+extern "C" {
+#include <SDL2/SDL.h>
+}
 #include <vector>
 
-namespace hui {
+namespace lui {
 	/**
 	 *	\brief A basic button
 	 */

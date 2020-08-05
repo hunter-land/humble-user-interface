@@ -3,10 +3,12 @@
 #include "./element.hpp"
 #include "./itemHolder.hpp"
 
-#include <SDL.h>
+extern "C" {
+#include <SDL2/SDL.h>
+}
 #include <vector>
 
-namespace hui {
+namespace lui {
 	
 	/**
 	 *	\brief A draggable item which can be placed inside itemHolders
@@ -30,7 +32,6 @@ namespace hui {
 		 *	\param val The value to assign to the item.
 		 */
 		item(SDL_Texture *texture, T val = T()) {
-			setDstrect(dstrect);
 			value = val;
 		}
 		/**
@@ -54,7 +55,7 @@ namespace hui {
 		~item() {}
 
 		void render(SDL_Renderer *renderer) {
-			SDL_RenderCopyExF(renderer, m_texture, srcrect, &m_dstrect, m_angle, &(hui::zeroFPoint), m_flip);
+			SDL_RenderCopyExF(renderer, m_texture, srcrect, &m_dstrect, m_angle, &(zeroFPoint), m_flip);
 		}
 		void userLogic(std::vector<SDL_Event> &events, SDL_Renderer *renderer) {
 			element::userLogic(events, renderer);

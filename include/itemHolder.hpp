@@ -2,11 +2,13 @@
 
 #include "./element.hpp"
 
-#include <SDL.h>
+extern "C" {
+#include <SDL2/SDL.h>
+}
 #include <vector>
 #include "./extra.hpp" //RotatePoint
 
-namespace hui {
+namespace lui {
 	template<typename T>
 	class item;
 

@@ -2,12 +2,14 @@
 
 #include "./element.hpp"
 
-#include <SDL.h>
+extern "C" {
+#include <SDL2/SDL.h>
+}
 #include <array>
 #include <vector>
 #include <mutex>
 
-namespace hui {
+namespace lui {
 
 	/**
 	 *	\brief A collection visible elements
