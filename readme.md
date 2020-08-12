@@ -4,10 +4,10 @@ LUI was created to provide a simple and customizable set of GUI elements
 to a C++ SDL environment with minimal constraints and overhead. With LUI,
 you define an element with a texture, dstrect, and an optional angle and
 flip.
-<!--Humble User Interface is a GUI library built on SDL2 v2.0.12.-->
+<!--Lower User Interface is a GUI library built on SDL2 v2.0.12.-->
 
 ## Features
-- Humble User Interface adds multiple GUI elements, including:
+- Lower User Interface adds multiple GUI elements, including:
   - Buttons
   - Drag & drop items
   - Drag & drop holders
