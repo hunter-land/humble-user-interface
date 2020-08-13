@@ -21,7 +21,7 @@ flip.
   - Sliders (Scroll bar)
   - Carousels, Message Boxes, Modal Windows (Button and Set)
 - Event-based function callbacks with capturing for every element.
-- Base class to make taylored elements (If you're into that or need to).
+- Base classes to make custom elements to fit your specification.
 
 ## Dependencies
 
@@ -33,17 +33,17 @@ flip.
 
 This library provides pre-compiled binaries for Windows x86 an x64 (More planned)
 
-## Usage
+<!--## Usage-->
 
-See the [documentation](https://hui-doc.herokuapp.com), [tutorials](), and [minimum working example]() for usage.
+<!--See the [documentation](), [tutorials](), and [minimum working example]() for usage.-->
 
 ## Contributing
 
 ##### Found a bug? Want a feature?
-Tell me about it by [submitting an issue](https://github.com/hunter-land/humble-user-interface/issues).
+Tell me about it by [submitting an issue](https://github.com/hunter-land/lower-user-interface/issues).
 
 ##### Fixed a bug? Refactored some code?
-Submit a [pull request](https://github.com/hunter-land/humble-user-interface/pulls).
+Submit a [pull request](https://github.com/hunter-land/lower-user-interface/pulls).
 
 ## Authors and acknowledgment
 
