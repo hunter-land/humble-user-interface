@@ -7,6 +7,14 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html) starting with v1.0.0.
 
 ## Unreleased
+## v0.5.0
+### Changed
+- File structure no longer includes duplicates between src and include
+### Added
+- CMake file for building
+### Removed
+- Built libraries and their folder
+- Old hui header
 ## v0.4.1
 ### Changed
 - <b>Changed name from HUI (Humble UI) to LUI (Low-Level UI).</b>
